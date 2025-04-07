@@ -41,11 +41,12 @@ function extload.PostInit()
 end
 
 function extload.GamemodeAutorun()
-	loader("autorun/" .. active_gamemode .. "/")
+	loader("autorun/gamemode/" .. active_gamemode .. "/")
 end
 
 if hook then
 	hook.Add("DoPostAutorun", TAG, function()
 		loader("postautorun/")
+		loader("postautorun/" .. active_gamemode .. "/")
 	end)
 end

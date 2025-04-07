@@ -10,7 +10,9 @@ AddCSLuaFile("includes/_init.lua")
 include("includes/_init.lua")
 
 if extload then
-	local post_ok, post_err = pcall(extload.PostInit)
+	local post_ok, post_err = pcall(function()
+		extload.PostInit()
+	end)
 	if not post_ok then
 		ErrorNoHalt(post_err)
 	end
